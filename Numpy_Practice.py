@@ -1,5 +1,9 @@
 import numpy as np
 
+#######################################################################################################################
+############################################ FASE PRATICA - ARRAYS ####################################################
+#######################################################################################################################
+
 # create list
 test_list = [1, 2, 3]
 print(test_list)
@@ -117,6 +121,41 @@ test_dtype = arange_arr.dtype
 print(test_dtype)
 
 #######################################################################################################################
-############################################## FINE FASE 1 PRATICA ####################################################
+############################################## FINE FASE PRATICA - ARRAYS #############################################
+#######################################################################################################################
+############################################## INIZIO FASE PRATICA - INDEXING #########################################
 #######################################################################################################################
 
+# create sample array
+index_arr = np.arange(0, 11)
+print(index_arr)
+
+# Get a value at an index
+print(index_arr[2])
+
+# Get values in a range
+print(index_arr[2:6])
+
+# Get values in a range from 0
+print(index_arr[0:5])
+
+# Broadcasting: Numpy arrays differ from a normal Python list because of their ability to broadcast
+# Setting a value with index range (Broadcasting)
+# index_arr[0:5] = 100
+
+slice_of_arr = index_arr[0:6]
+print(slice_of_arr)
+
+# change slice - it is changes also in the original array | data is not copied because of memory problems
+slice_of_arr[:] = 99
+print(slice_of_arr)
+print(index_arr)
+
+# To get a copy, need to be explicit
+arr_copy = index_arr.copy()
+print(arr_copy)
+
+"""
+Indexing a 2D array (matrices)
+The general format is arr_2d[row][col] or arr_2d[row,col]. I recommend usually using the comma notation for clarity.
+"""
