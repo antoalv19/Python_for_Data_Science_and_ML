@@ -210,3 +210,60 @@ print(arr_selection[arr_selection > 4])
 x = 3
 
 print(arr_selection[arr_selection > x])
+
+#######################################################################################################################
+############################################## FINE FASE PRATICA - INDEXING ###########################################
+#######################################################################################################################
+############################################## INIZIO FASE PRATICA - OPERATIONS########################################
+#######################################################################################################################
+# Arithmetic: You can easily perform array with array arithmetic, or scalar with array arithmetic.
+aritm_arr = np.arange(0, 10)
+
+# addizione
+aritm_add = aritm_arr + aritm_arr
+print(aritm_add)
+
+# Moltiplicazione
+aritm_mult = aritm_arr * aritm_arr
+print(aritm_mult)
+
+# Sottrazione
+aritm_sub = aritm_arr - aritm_arr
+print(aritm_sub)
+
+# Divisione
+aritm_div = aritm_arr / aritm_arr
+print(aritm_div)
+
+# 1 / arr
+aritm_div0 = 1 / aritm_arr
+print(aritm_div0)
+
+# Power of 3
+aritm_pow = aritm_arr ** 3
+print(aritm_pow)
+
+# UNIVERSAL ARRAY FUNCTIONS
+# Taking square root
+arr_sq = np.sqrt(aritm_arr)
+print(arr_sq)
+
+# Calculating exponential (e^)
+arr_ep = np.exp(aritm_arr)
+print(arr_ep)
+
+# array max
+arr_max = np.max(aritm_arr)
+print(arr_max)
+
+# array min
+arr_min = np.min(aritm_arr)
+print(arr_min)
+
+# calculate sin
+arr_sin = np.sin(aritm_arr)
+print(arr_sin)
+
+# calculate log
+arr_log = np.log(aritm_arr)
+print(arr_log)
