@@ -159,3 +159,54 @@ print(arr_copy)
 Indexing a 2D array (matrices)
 The general format is arr_2d[row][col] or arr_2d[row,col]. I recommend usually using the comma notation for clarity.
 """
+arr_2d = np.array(([5, 10, 15], [20, 25, 30], [35, 40, 45]))
+
+print(arr_2d)
+
+# indexing row
+print(arr_2d[0])
+
+# getting individual element value
+print(arr_2d[1, 0])
+
+# 2D array slicing - Shape (2,2) from top right corner
+# Riga da 0 a 1 e colonna da 1 alla fine
+slice_2d = arr_2d[:2, 1:]
+print(slice_2d)
+
+# Fancy indexing allows you to select entire rows or columns out of order:
+fancy_index = np.zeros((10, 10))
+print(fancy_index)
+
+# Length of array
+fancy_length = fancy_index.shape[1]
+
+# set up array
+for i in range(fancy_length):
+    fancy_index[i] = i
+
+print(fancy_index)
+
+# Fancy indexing allows the following
+fancy_index_1 = fancy_index[[2, 3, 4]]
+fancy_index_2 = fancy_index[[9, 8, 7]]
+
+print(fancy_index_1)
+print(fancy_index_2)
+
+# Selection: how to use brackets for selection based off of comparison operators.
+arr_selection = np.arange(1, 11)
+print(arr_selection)
+
+# BOOL operator
+print(arr_selection > 4)
+
+bool_arr = arr_selection > 4
+
+print(arr_selection[bool_arr])
+
+print(arr_selection[arr_selection > 4])
+
+x = 3
+
+print(arr_selection[arr_selection > x])
