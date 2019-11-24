@@ -53,5 +53,9 @@ df["New"] = df["W"] + df["Y"]
 # Removing columns - Specify Inplace = True
 df.drop("New", axis=1, inplace=True)
 
+# Drop rows specifying index = 0
+df.drop("E", axis=0, inplace=True)
+print(df)
+
 
 
