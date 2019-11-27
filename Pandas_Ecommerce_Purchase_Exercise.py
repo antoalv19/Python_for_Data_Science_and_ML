@@ -16,9 +16,11 @@ ecom.head()
 ecom["Purchase Price"].mean()
 
 # What were the highest and lowest purchase prices?
-ecom["Purchase Price"].min(), ecom["Purchase Price"].max()
+ecom["Purchase Price"].min()
+ecom["Purchase Price"].max()
 
 # How many people have English 'en' as their Language of choice on the website?
+# SOLUTION: ecom[ecom["Language"] == "en"].count()
 ecom[ecom["Language"] == "en"]["Language"].value_counts()
 
 # How many people have the job title of "Lawyer" ?
@@ -37,11 +39,13 @@ ecom[ecom["Lot"] == "90 WT"]["Purchase Price"]
 ecom[ecom["Credit Card"] == 4926535242672853]["Email"]
 
 # How many people have American Express as their Credit Card Provider and made a purchase above $95
+# SOLUTION: ecom[(ecom['CC Provider']=='American Express') & (ecom['Purchase Price']>95)].count()
 ecom[(ecom["CC Provider"] == "American Express") & (ecom["Purchase Price"] > 95)]["CC Provider"].value_counts()
 
 # Hard: How many people have a credit card that expires in 2025?
+# SOLUTION: sum(ecom['CC Exp Date'].apply(lambda x: x[3:]) == '25')
 sum(ecom[ecom["CC Exp Date"].astype(str).str[3:5] == "25"]["CC Exp Date"].value_counts())
 
 # Hard: What are the top 5 most popular email providers/hosts (e.g. gmail.com, yahoo.com, etc...)
-ecom["Mail_Prov"] = ecom["Email"].str.split("@", n=1, expand=True)[1]
-ecom.Mail_Prov.value_counts().head()
+# SOLUTION: ecom['Email'].apply(lambda x: x.split('@')[1]).value_counts().head(5)
+ecom["Email"].str.split("@", n=1, expand=True)[1].value_counts().head()
