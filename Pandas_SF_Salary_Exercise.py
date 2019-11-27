@@ -12,7 +12,7 @@ sal = pd.read_csv(SALARIES_CSV)
 sal.head()
 
 # Check dataframe info (column, value count, data type)
-sal.info()
+# sal.info()
 
 # What is the average Base Pay?
 sal["BasePay"].mean()
@@ -22,16 +22,22 @@ sal["OvertimePay"].max()
 
 # What is the job title of JOSEPH DRISCOLL ? Note: Use all caps, otherwise you may get an answer that doesn't
 # match up (there is also a lowercase Joseph Driscoll).
+# SOLUTION: sal[sal["EmployeeName"] == "JOSEPH DRISCOLL"]["JobTitle"]
 jobt_joseph = sal["JobTitle"][sal["EmployeeName"] == "JOSEPH DRISCOLL"]
 
 # How much does JOSEPH DRISCOLL make (including benefits)?
+# SOLUTION: sal[sal["EmployeeName"] == "JOSEPH DRISCOLL"]["TotalPayBenefits]
 tot_pay_jd = sal["TotalPayBenefits"][sal["EmployeeName"] == "JOSEPH DRISCOLL"]
 
 # What is the name of highest paid person (including benefits)?
+# ADV SOLUTION: sal.loc[sal["TotalPayBenefits"].idxmax()]
+# .idxmax() restituisce il numero di indice
+# .iloc() restituisce il dato presente a quell'indice
 max_pay = sal[sal["TotalPayBenefits"] == sal["TotalPayBenefits"].max()]["EmployeeName"]
 
 # What is the name of lowest paid person (including benefits)?
 # Do you notice something strange about how much he or she is paid? -> Amount is negative
+# ADV SOLUTION: sal.loc[sal["TotalPayBenefits"].idxmin()]
 min_pay = sal[sal["TotalPayBenefits"] == sal["TotalPayBenefits"].min()][["EmployeeName", "TotalPayBenefits"]]
 
 # What was the average (mean) BasePay of all employees per year? (2011-2014)?
