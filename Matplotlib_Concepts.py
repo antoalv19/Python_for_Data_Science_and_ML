@@ -53,3 +53,60 @@ axes2.set_ylabel("Asse Y Piccolo")
 axes2.set_title("Titolo Grafico Piccolo")
 
 #################################################### START OF SUBPLOTS #################################################
+# The plt.subplots() object will act as a more automatic axis manager.
+# Use similar to plt.figure() except use tuple unpacking to grab fig and axes
+fig, axes = plt.subplots()
+
+# Now use the axes object to add stuff to plot
+axes.plot(x, y, 'r')
+axes.set_xlabel('Asse X')
+axes.set_ylabel('Asse Y')
+axes.set_title('Subplots')
+
+# Then you can specify the number of rows and columns when creating the subplots() object:
+fig, axes = plt.subplots(nrows=1, ncols=2)
+
+# AXES is an iterable array of axes to plot on
+for ax in axes:
+    ax.plot(x, y, "b")
+    ax.set_xlabel("Asse X")
+    ax.set_ylabel("Asse Y")
+    ax.set_title("Titolo due")
+
+# We can use fig.tight_layout() or plt.tight_layout() method,
+# which automatically adjusts the positions of the axes on the figure canvas so that there is no overlapping content:
+
+plt.tight_layout()
+
+"""Figure size, aspect ratio and DPI
+Matplotlib allows the aspect ratio, DPI and figure size to be specified when the Figure object is created.
+You can use the figsize and dpi keyword arguments.
+
+figsize is a tuple of the width and height of the figure in inches
+dpi is the dots-per-inch (pixel per inch)."""
+fig = plt.figure(figsize=(8, 4), dpi=100)
+
+# The same arguments can also be passed to layout managers, such as the subplots function:
+fig, axes = plt.subplots(figsize=(12, 3))
+axes.plot(x, y, 'r')
+axes.set_xlabel('Asse X')
+axes.set_ylabel('Asse Y')
+axes.set_title('Subplots')
+
+
+# Saving figures
+# Matplotlib can generate high-quality output in a number formats, including PNG, JPG, EPS, SVG, PGF and PDF.
+# To save a figure to a file we can use the savefig method in the Figure class:
+# fig.savefig("test_filesave_02122019.png", dpi=200)
+
+# Legends
+# You can use the label="label text" keyword argument when plots or other objects are added to the figure,
+# and then using the legend method without arguments to add the legend to the figure:
+fig = plt.figure()
+ax = fig.add_axes([0, 0, 1, 1])
+ax.plot(x, x**2, label="x**2")
+ax.plot(x, x**3, label="x**3")
+ax.legend(loc=0)
+
+# The legend function takes an optional keyword argument loc that can be used
+# to specify where in the figure the legend is to be drawn.
